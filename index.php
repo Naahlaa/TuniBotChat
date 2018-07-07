@@ -8,7 +8,7 @@
     			
     			
 			while ($row=mysqli_fetch_array($res)) {
-				echo $row["nom"];
+				echo "selected name: ".$row["nom"];
 				$var = $row["nom"];
 			}
 
