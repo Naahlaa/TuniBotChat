@@ -9,9 +9,10 @@
     			
 			while ($row=mysqli_fetch_array($res)) {
 				echo $row["nom"];
+				$var = $row["nom"];
 			}
 
-
+			echo $var;
 
 $method = $_SERVER['REQUEST_METHOD'];
 			
@@ -38,7 +39,7 @@ if($method == 'POST'){
 	
 	if ($text == 'pass me a name from your database!') {
 
-    			$speech = "hhhh". $row["nom"]."jjjjj";
+    			$speech = $var;
 
 	}
 			 else {
