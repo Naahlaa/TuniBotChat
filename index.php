@@ -5,43 +5,49 @@
     			$query1 = "SELECT * FROM name";
     			echo "Selected!";
     			$res=mysqli_query($conn, $query1);
-    				
-		
+    			
+    			 $result1=mysqli_query($conn, $query1);
+    			  $var=[];
+		 if(isset($res)){
+			 
+		 while ($row=mysqli_fetch_array($res)) {
+				echo "selected name: ".$row["nom"];
+				$var = $row["nom"];
+			}
+			
+	}
+			
+
+			var_dump($var);
 
 $method = $_SERVER['REQUEST_METHOD'];
 			
+			echo "heeeeeeeeeere";
+			var_dump($var);
 
 // Process only when method is POST
- if(isset($res)){
+if($method == 'POST'){
+	$requestBody = file_get_contents('php://input');
+	$json = json_decode($requestBody);
 
-	while ($row=mysqli_fetch_array($res)) {
-	if($method == 'POST'){
-		$requestBody = file_get_contents('php://input');
-		$json = json_decode($requestBody);
+	$text = $json->result->parameters->text;
 
-		$text = $json->result->parameters->text;
+	switch ($text) {
+		case 'hi':
+			$speech = "Hi, Nice to meet you";
+			break;
 
-			switch ($text) {
-				case 'hi':
-					$speech = "Hi, Nice to meet you";
-				break;
+		case 'bye':
+			$speech = "Bye, good night";
+			break;
 
-				case 'bye':
-					$speech = "Bye, good night";
-				break;
-
-
-				case 'pass me a name from your database!':
-
-					$speech = "Your name is ". " " . $row['nom'];
-
-				break;
-
-
+		case 'pass a name from your database!':
+			$speech = "Bye, good night " . " " . $var;
+			break;
 		default:
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
-			}
+	}
 	
 
 	$response = new \stdClass();
@@ -55,6 +61,6 @@ else
 	echo "Method not allowed";
 }
 
- }
-}
+ 
+
 ?>
