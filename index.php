@@ -6,14 +6,16 @@
     			echo "Selected!";
     			$res=mysqli_query($conn, $query1);
 
-
-    			$row=mysqli_fetch_array($res);
-		 
-		echo "selected name: ".$row["nom"];
-				$var = $row["nom"];
+    			if (isset($res)) {
+    				$row=mysqli_fetch_array($res);
+					echo "selected name: ".$row["nom"];
+					$var = $row[0];
+    			}
+    			
 		
-			
-			
+					echo "fuuuck!";
+					 var_dump($var);
+
 
 
 $method = $_SERVER['REQUEST_METHOD'];
