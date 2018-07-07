@@ -21,6 +21,17 @@ if($method == 'POST'){
 		case 'anything':
 			$speech = "Yes, you can type anything here.";
 			break;
+			
+		case 'pass me a name from your database!';
+		
+		$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
+
+    		$query1 = "SELECT * FROM name";
+
+    		$speech = `Now Your name is ${query1}`;
+
+
+			break;
 		
 		default:
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
