@@ -34,7 +34,7 @@ if($method == 'POST'){
 
     		
 
-    		$speech = "Your new name is ${row["nom"]}";
+    		$speech = "Your new name is ${$row["nom"]}";
 
 
 			break;
