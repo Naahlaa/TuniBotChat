@@ -22,19 +22,19 @@ if($method == 'POST'){
 			$speech = "Yes, you can type anything here.";
 			break;
 			
+		
 		case 'pass me a name from your database!':
-			
-		$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
+			$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
 
     		$query1 = "SELECT * FROM name";
 
     		$res=mysqli_query($conn, $query1);
 
-    		$row=mysqli_fetch_array($res)
+    		$row=mysqli_fetch_array($res);
 
-    		$tst=$row["nom"];
+    		
 
-    		$speech = `Your name is ${tst}`;
+    		$speech = "Your new name is ${row["nom"]}";
 
 
 			break;
