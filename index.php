@@ -9,11 +9,11 @@
     			if (isset($res)) {
     				$row=mysqli_fetch_array($res);
 					echo "selected name: ".$row["nom"];
-					$var[] = $row;
+					$var[] = $row["nom"];
     			}
     			
 		
-					echo "fuuuck!";
+					echo "fuuuck offffff!";
 					 var_dump($var);
 
 
