@@ -37,7 +37,7 @@ if($method == 'POST'){
     			$speech = "hhhh". $row["nom"]."jjjjj";
 
 	}
-			} else {
+			 else {
 				$speech = "fuck off!";
 			}
 
