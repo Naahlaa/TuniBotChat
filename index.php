@@ -10,6 +10,7 @@
     				$row=mysqli_fetch_array($res);
 					echo "selected name: ".$row["nom"];
 					$var[] = $row["nom"];
+				var_dump($var);
     			}
     			
 		
