@@ -12,43 +12,36 @@ $method = $_SERVER['REQUEST_METHOD'];
 			
 
 // Process only when method is POST
-if($method == 'POST'){
-	$requestBody = file_get_contents('php://input');
-	$json = json_decode($requestBody);
+ if(isset($res)){
 
-	$text = $json->result->parameters->text;
+	while ($row=mysqli_fetch_array($res)) {
+	if($method == 'POST'){
+		$requestBody = file_get_contents('php://input');
+		$json = json_decode($requestBody);
 
-	switch ($text) {
-		case 'hi':
-			$speech = "Hi, Nice to meet you";
-			break;
+		$text = $json->result->parameters->text;
 
-		case 'bye':
-			$speech = "Bye, good night";
-			break;
+			switch ($text) {
+				case 'hi':
+					$speech = "Hi, Nice to meet you";
+				break;
+
+				case 'bye':
+					$speech = "Bye, good night";
+				break;
 
 
-			case 'pass me a name from your database!':
+				case 'pass me a name from your database!':
 
-			 if(isset($res)){
-			 
-		 		while ($row=mysqli_fetch_array($res)) {
-					echo "selected name: is here".$row["nom"];
-				
-							var_dump($row['nom']);
+					$speech = "Your name is ". " " . $row['nom'];
 
-							$speech = "Bye, good night";
-
-				}
-			
-			}
-			break;
+				break;
 
 
 		default:
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
-	}
+			}
 	
 
 	$response = new \stdClass();
@@ -62,6 +55,6 @@ else
 	echo "Method not allowed";
 }
 
- 
-
+ }
+}
 ?>
