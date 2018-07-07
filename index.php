@@ -1,7 +1,7 @@
 <?php 
 
 				$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
-				echo "connected!";
+				echo "connected!!!!!!";
     			$query1 = "SELECT * FROM name";
     			echo "Selected!";
     			$res=mysqli_query($conn, $query1);
