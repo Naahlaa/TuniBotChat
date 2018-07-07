@@ -5,11 +5,11 @@
     			$query1 = "SELECT * FROM name";
     			echo "Selected!";
     			$res=mysqli_query($conn, $query1);
-				$var="";
+				$var=array();
     			if (isset($res)) {
     				$row=mysqli_fetch_array($res);
 					echo "selected name: ".$row["nom"];
-					$var = $row["nom"];
+					$var[] = $row;
     			}
     			
 		
