@@ -34,7 +34,7 @@ if($method == 'POST'){
 
     			while ($row=mysqli_fetch_array($res)) {
 
-    				$speech = "$row["nom"]";
+    			$speech = "hhhh". $row["nom"]."jjjjj";
 
     			}
 		return $speech;
