@@ -28,7 +28,9 @@ if($method == 'POST'){
 
     		$query1 = "SELECT * FROM name";
 
-    		$speech = `Now Your name is ${query1}`;
+    		$res=mysqli_query($conn, $query1);
+
+    		$speech = `Now Your name is ${res}`;
 
 
 			break;
