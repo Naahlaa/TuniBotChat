@@ -22,7 +22,7 @@ if($method == 'POST'){
 			$speech = "Yes, you can type anything here.";
 			break;
 			
-		case 'pass me a name from your database!';
+		case 'pass me a name from your database!':
 			
 		$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
 
