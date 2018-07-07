@@ -30,13 +30,12 @@ if($method == 'POST'){
 
     		$res=mysqli_query($conn, $query1);
 
-    		$row=mysqli_fetch_array($res);
 
-    		
+    		while ($row=mysqli_fetch_array($res)) {
 
-    		$speech = "Your name is".$row["nom"]."hhhh";
+    			$speech = "Your new name is ".$row['nom']."hhhh";
 
-
+    			}	
 			break;
 		
 		default:
