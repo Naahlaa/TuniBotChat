@@ -18,14 +18,29 @@ if($method == 'POST'){
 		case 'bye':
 			$speech = "Bye, good night";
 			break;
-
-		
-		
-		
 		default:
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
 	}
+	
+	if ($text == 'pass me a name from your database!') {
+
+				$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
+
+    			$query1 = "SELECT * FROM name";
+
+    			$res=mysqli_query($conn, $query1);
+
+
+    			while ($row=mysqli_fetch_array($res)) {
+
+    				$speech = "$row["nom"]";
+
+    			}
+		return $speech;
+			} else {
+				$speech = "fuck off!";
+			}
 
 	$response = new \stdClass();
 	$response->speech = $speech;
