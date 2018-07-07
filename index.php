@@ -1,9 +1,7 @@
 <?php 
 
 $method = $_SERVER['REQUEST_METHOD'];
-			$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
-    		$query1 = "SELECT * FROM name";
-    		$res=mysqli_query($conn, $query1);
+			
 
 // Process only when method is POST
 if($method == 'POST'){
@@ -27,12 +25,23 @@ if($method == 'POST'){
 			
 		
 		case 'pass me a name from your database!':
+			$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
 
- while($row=mysqli_fetch_array($res)){
-			 	  $speech = "Your new name is ".$row['nom']."hhhh";
+    		$query1 = "SELECT * FROM name";
 
-    }
-    			
+    		$res=mysqli_query($conn, $query1);
+
+
+    		while ($row=mysqli_fetch_array($res)) {
+
+    			$speech = $row['nom'];
+
+    			}	
+
+    		
+
+
+
 			break;
 		
 		default:
