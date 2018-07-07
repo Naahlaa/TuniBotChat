@@ -31,12 +31,12 @@ if($method == 'POST'){
 
     			$res=mysqli_query($conn, $query1);
 
-
-    			while ($row=mysqli_fetch_array($res)) {
+			$row=mysqli_fetch_array($res)
+    			
 
     			$speech = "hhhh". $row["nom"]."jjjjj";
 
-    			}
+	}
 		return $speech;
 			} else {
 				$speech = "fuck off!";
