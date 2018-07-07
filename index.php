@@ -1,18 +1,12 @@
 <?php 
 
 				$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
-				echo "connected!!!!!!";
+				echo "connected!";
     			$query1 = "SELECT * FROM name";
     			echo "Selected!";
     			$res=mysqli_query($conn, $query1);
-    			
-    			
-			while ($row=mysqli_fetch_array($res)) {
-				echo "selected name: ".$row["nom"];
-				$var = $row["nom"];
-			}
-
-			echo $var;
+    				
+		
 
 $method = $_SERVER['REQUEST_METHOD'];
 			
@@ -32,19 +26,30 @@ if($method == 'POST'){
 		case 'bye':
 			$speech = "Bye, good night";
 			break;
+
+
+			case 'pass me a name from your database!':
+
+			 if(isset($res)){
+			 
+		 		while ($row=mysqli_fetch_array($res)) {
+					echo "selected name: is here".$row["nom"];
+				
+							var_dump($row['nom']);
+
+							$speech = "Bye, good night";
+
+				}
+			
+			}
+			break;
+
+
 		default:
 			$speech = "Sorry, I didnt get that. Please ask me something else.";
 			break;
 	}
 	
-	if ($text == 'pass me a name from your database!') {
-
-    			$speech = $var;
-
-	}
-			 else {
-				$speech = "fuck off!";
-			}
 
 	$response = new \stdClass();
 	$response->speech = $speech;
@@ -56,5 +61,7 @@ else
 {
 	echo "Method not allowed";
 }
+
+ 
 
 ?>
