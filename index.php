@@ -9,7 +9,7 @@
     			if (isset($res)) {
     				$row=mysqli_fetch_array($res);
 					echo "selected name: ".$row["nom"];
-					$var = $row[0];
+					$var = $row["nom"];
     			}
     			
 		
