@@ -27,11 +27,14 @@ if($method == 'POST'){
 
 				$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
 
+    			echo "connected!";
     			$query1 = "SELECT * FROM name";
-
+    			echo "Selected!";
     			$res=mysqli_query($conn, $query1);
-
+    			echo $res;
 			$row=mysqli_fetch_array($res);
+    			
+			echo $row['nom'];
     			
 
     			$speech = "hhhh". $row["nom"]."jjjjj";
