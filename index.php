@@ -19,20 +19,7 @@ if($method == 'POST'){
 			$speech = "Bye, good night";
 			break;
 
-		case 'pass me a name from your database!':
-			$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
-
-    		$query1 = "SELECT * FROM name";
-
-    		$res=mysqli_query($conn, $query1);
-
-
-    		while ($row=mysqli_fetch_array($res)) {
-
-    			$speech = "$row['nom']";
-
-    			}	
-			break;
+		
 		
 		
 		default:
