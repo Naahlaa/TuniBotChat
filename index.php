@@ -5,25 +5,19 @@
     			$query1 = "SELECT * FROM name";
     			echo "Selected!";
     			$res=mysqli_query($conn, $query1);
-    			
-    			 $result1=mysqli_query($conn, $query1);
-    			  $var=[];
-		 if(isset($res)){
-			 
-		 while ($row=mysqli_fetch_array($res)) {
-				echo "selected name: ".$row["nom"];
+
+
+    			$row=mysqli_fetch_array($res);
+		 
+		echo "selected name: ".$row["nom"];
 				$var = $row["nom"];
-			}
+		
 			
-	}
 			
 
-			var_dump($var);
 
 $method = $_SERVER['REQUEST_METHOD'];
-			
-			echo "heeeeeeeeeere";
-			var_dump($var);
+		
 
 // Process only when method is POST
 if($method == 'POST'){
