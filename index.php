@@ -1,21 +1,16 @@
 <?php 
 
-				$conn=mysqli_connect('localhost','root','nahla','id6328892_nahla');
-				echo "connected!";
-    			$query1 = "SELECT * FROM name";
-    			echo "Selected!";
-    			$res=mysqli_query($conn, $query1);
-				$var=array();
-    			if (isset($res)) {
-    				$row=mysqli_fetch_array($res);
-					echo "selected name: ".$row["nom"];
-					$var[] = $row["nom"];
-				var_dump($var);
-    			}
-    			
+
+		$connection = new MongoClient("mongodb://admin:admin123@ds131601.mlab.com:31601/mybot");
 		
+    			$collection = $connection->mybot->users;
+
+			$document = $collection->findOne();
 					echo "fuuuck offffff!";
-					 var_dump($var);
+			$var = "";
+
+			var_dump( $document );
+			$var = $document;
 
 
 
