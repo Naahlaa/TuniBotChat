@@ -1,6 +1,6 @@
 <?php 
 
-				$conn=mysqli_connect('localhost','root','NJOUBA','tunibot');
+				$conn=mysqli_connect('localhost','root','nahla','id6328892_nahla');
 				echo "connected!";
     			$query1 = "SELECT * FROM name";
     			echo "Selected!";
